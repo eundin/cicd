@@ -14,6 +14,7 @@ export const Form: React.FC<FormProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+
     setTodo(e.target.value);
   };
 
@@ -42,7 +43,14 @@ export const Form: React.FC<FormProps> = ({
   };
 
   return (
-    <form className="flex flex-col space-y-4" onSubmit={handleAddTodo}>
+    <form
+      id="todo-form"
+      title="form to create todo"
+      data-testid="todo-form"
+      aria-label="form"
+      className="flex flex-col space-y-4"
+      onSubmit={handleAddTodo}
+    >
       <label htmlFor="todo" className="sr-only">
         {"입력"}
       </label>
@@ -52,13 +60,24 @@ export const Form: React.FC<FormProps> = ({
         value={todo}
         onChange={handleChange}
         placeholder="할 일을 입력하세요"
+        title=""
+        data-id="todo-input"
       />
       <button
         className="px-4 py-2 text-white rounded-md bg-blue-400"
         type="submit"
         onClick={handleAddTodo}
+        aria-label="create"
       >
         {"생성하기"}
+      </button>
+      <button
+        className="px-4 py-2 text-white rounded-md bg-blue-400"
+        type="submit"
+        onClick={handleAddTodo}
+        aria-label="cancel"
+      >
+        {"취소하기"}
       </button>
     </form>
   );

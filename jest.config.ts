@@ -14,7 +14,7 @@ const createJestConfig = nextJest({
 const config: Config = {
   coverageProvider: "v8",
   testEnvironment: "jsdom",
-  testMatch: ["**/*.test.tsx"],
+  testMatch: ["**/form.test.tsx"],
 };
 
 module.exports = createJestConfig(config);

@@ -126,7 +126,7 @@ describe("Query Page Test", () => {
   it("Fetch Data Component", async () => {
     render(<FetchDataComponent />);
 
-    const getBy = await screen.findByRole("list");
+    const getBy = await screen.findByRole("list", {}, { timeout: 2000 });
     screen.debug();
 
     expect(getBy).toBeInTheDocument();

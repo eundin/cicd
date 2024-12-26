@@ -7,13 +7,18 @@ interface Post {
   body: string;
 }
 
-export const FakeFetch = () =>
-  Promise.resolve<Post>({
-    userId: 1,
-    id: 1,
-    title: "fake title",
-    body: "fake body",
+export const FakeFetch = () => {
+  return new Promise<Post>((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        userId: 1,
+        id: 1,
+        title: "fake title",
+        body: "fake body",
+      });
+    }, 1000);
   });
+};
 
 export const FetchDataComponent: React.FC = () => {
   const [post, setPost] = useState<Post>();
@@ -23,6 +28,8 @@ export const FetchDataComponent: React.FC = () => {
       setPost(data);
     });
   }, []);
+
+  console.log(post);
 
   return (
     <div>
