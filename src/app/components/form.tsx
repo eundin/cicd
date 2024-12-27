@@ -23,8 +23,9 @@ export const Form: React.FC<FormProps> = ({
   ) => {
     e.preventDefault();
 
+    // !"" : true
     if (!todo) {
-      return;
+      throw new Error("할 일을 입력하세요");
     }
 
     const newTodo: TODO = {
@@ -55,6 +56,7 @@ export const Form: React.FC<FormProps> = ({
         {"입력"}
       </label>
       <input
+        aria-label="form-input-todo"
         className="px-4 py-2 bg-neutral-100  outline-none  rounded-md"
         id="todo"
         value={todo}

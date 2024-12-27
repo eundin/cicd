@@ -13,6 +13,7 @@ export const List: React.FC<ListProps> = ({ todos, setTodos }) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
     await saveToStorage(newTodos);
+    console.log(saveToStorage);
   };
 
   const handleUpdate = async (id: number) => {
@@ -49,6 +50,7 @@ export const List: React.FC<ListProps> = ({ todos, setTodos }) => {
               <button
                 onClick={() => handleDelete(todo.id)}
                 className="text-sm text-red-400"
+                aria-label="delete"
               >
                 {"삭제"}
               </button>
