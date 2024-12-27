@@ -18,7 +18,7 @@ export const Form: React.FC<FormProps> = ({
     setTodo(e.target.value);
   };
 
-  const handleAddTodo = (
+  const handleAddTodo = async (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ export const Form: React.FC<FormProps> = ({
       return [...prev, newTodo];
     });
 
-    handleSaveToStorage(newTodo);
+    await handleSaveToStorage(newTodo);
 
     setTodo("");
   };

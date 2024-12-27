@@ -40,6 +40,20 @@ describe("list test suite", () => {
     const saveToStorageMock = jest.spyOn(StorageAPI, "saveToStorage");
 
     // 첫번째 todo를 삭제
+    /**
+     * <ul>
+     *  <li>
+     *    <button>delete</button>
+     *    ...
+     *  </li>
+     *  <li>
+     *    <button>delete</button>
+     *    ...
+     *  </li>
+     * </ul>
+     *
+     */
+    // [ button,button ]
     const deleteButton = screen.getAllByRole("button", { name: /delete/i })[0];
 
     await User.click(deleteButton);
