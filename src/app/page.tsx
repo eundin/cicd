@@ -42,6 +42,12 @@ export default function Home() {
     fetchAllTodos().then((items) => setTodos(items));
   }, []);
 
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  if (!url) {
+    throw new Error("API URL is not defined")
+
+  }
+
   return (
     <main className="p-4 rounded-md bg-white shadow-md w-full max-w-md flex flex-col">
       <h1 className="font-bold text-sm ">{"To Do List"}</h1>
