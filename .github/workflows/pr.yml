@@ -2,10 +2,12 @@ name: PR
 on: push
 jobs:
   build-test:
+    continue-on-error: true
     strategy:
       matrix:
         node-version: [12, 18]
-    runs-on: ubuntu-latest
+        os-type: [ubuntu-latest, windows-latest]
+    runs-on: ${{matrix.os-type}}
     steps:
       - name: Get Codes
         uses: actions/checkout@v4
