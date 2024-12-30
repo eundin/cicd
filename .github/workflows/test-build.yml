@@ -4,7 +4,15 @@
 name: Run Test And Build
 # push, workflow_dispatch(manually trigger)
 # 이벤트 대해서만 트리거 됨
-on: [push, workflow_dispatch]
+on:
+  # Trigger Event
+  push:
+    # Event Filtering
+    branches:
+      - dev
+
+  workflow_dispatch:
+
 jobs:
   # 1. 테스트 job
   test:
