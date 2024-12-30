@@ -15,7 +15,7 @@ export default Query;
 
 export const noEmptyString = (str: string) => {
   if (str === "") {
-    throw new Error("빈 문자열이 들어왔습니다eeed.");
+    throw new Error("빈 문자열이 들어왔습니다eeeed.");
   }
 
   return str;
