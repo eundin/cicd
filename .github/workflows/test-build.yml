@@ -6,7 +6,7 @@ name: Run Test And Build
 # 이벤트 대해서만 트리거 됨
 on: [push, workflow_dispatch]
 jobs:
-  # 1. 테스트
+  # 1. 테스트 job
   test:
     runs-on: ubuntu-latest
     steps:
@@ -17,4 +17,20 @@ jobs:
       # 의존성 파일들 설치
       - name: Install Dependencies
         run: npm install
-  # 2. 빌드
+
+      # 테스트 실행
+      - name: Run Test
+        run: npm run test
+
+  # 2. 빌드 job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Codes
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build
+        run: npm run build
